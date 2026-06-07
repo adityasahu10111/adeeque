@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/* ─── Editorial Design Tokens ────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand palette */
+  --background: #F5F0E8;
+  --foreground: #000000;
+  --accent: #CCFF00;
+  --accent-foreground: #000000;
+
+  /* shadcn-compatible semantic tokens */
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #F5F0E8;
+  --secondary: #E8E3DB;
+  --secondary-foreground: #000000;
+  --muted: #E8E3DB;
+  --muted-foreground: #555555;
+  --border: #000000;
+  --input: #000000;
+  --ring: #CCFF00;
+  --destructive: #FF2D2D;
+  --destructive-foreground: #FFFFFF;
+  --radius: 0rem;
 }
 
+/* ─── Tailwind v4 theme mapping ──────────────────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+
+  /* Border radius (none — editorial, sharp) */
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Base styles ────────────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ─── Typography scale ───────────────────────────────────────────────────── */
+.headline-hero {
+  font-family: var(--font-serif);
+  font-size: clamp(60px, 10vw, 120px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.label-caps {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+/* ─── Editorial divider ──────────────────────────────────────────────────── */
+.rule-bold {
+  border-top: 5px solid #000000;
 }
